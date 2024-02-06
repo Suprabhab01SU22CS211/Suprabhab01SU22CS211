@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="colo.css">
+  <title>Portfolio</title>
+</head>
+<body>
+  <header>
+    <h1>Name</h1>
+    <p>suprabha</p>
+  </header>
+  
+  <section class="about">
+    <h1>About Me</h1>
+    <p>As a software developer im passionate about creating truly beautiful efficient digital productsto make people experience with technology memorable</p>
+  </section>
+
+  <section class="skills">
+    <h1>Skills</h1>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <!-- Add more skills as needed -->
+    </ul>
+  </section>
+
+  <section class="projects">
+    <h1>Projects</h1>
+    <div class="project">
+      <h3>one cool project website for a local bakery we can showcase delicious treat etc</h3>
+      <p></p>
+    </div>
+    <div class="project">
+      <h3>one cool project idea of web development travelblog we can share experience,postpictures etc</h3>
+      <p></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Contact: your@bsuprabhagmail.com</p>
+  </footer>
+</body>
+</html>
