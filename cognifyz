@@ -1,0 +1,178 @@
+number guess game:
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessingGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int targetNumber = random.nextInt(100) + 1;
+        int maxAttempts = 5;
+        int attempts = 0;
+        boolean isGuessed = false;
+
+        System.out.println("Welcome to the Guessing Game!");
+        System.out.println("I have selected a number between 1 and 100.");
+        System.out.println("You have " + maxAttempts + " attempts to guess the correct number.");
+
+        while (attempts < maxAttempts) {
+            System.out.print("Enter your guess: ");
+            int playerGuess = scanner.nextInt();
+            attempts++;
+
+            if (playerGuess == targetNumber) {
+                System.out.println("Congratulations! You guessed the correct number in " + attempts + " attempts.");
+                isGuessed = true;
+                break;
+            } else if (playerGuess < targetNumber) {
+                System.out.println("Too low! Try again.");
+            } else {
+                System.out.println("Too high! Try again.");
+            }
+
+            System.out.println("You have " + (maxAttempts - attempts) + " attempts left.");
+        }
+
+        if (!isGuessed) {
+            System.out.println("Sorry, you've used all your attempts. The correct number was " + targetNumber + ".");
+        }
+
+        scanner.close();
+    }
+}
+
+pattern:
+
+import java.util.Scanner;
+
+public class PyramidPattern {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows for the pyramid: ");
+        int rows = scanner.nextInt();
+
+        for (int i = 1; i <= rows; i++) {
+            // Print leading spaces
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            
+            // Print numbers in increasing order
+            for (int k = 1; k <= i; k++) {
+                System.out.print(k + " ");
+            }
+            
+            // Move to the next line after each row
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}
+
+celsius to fahrenheit:
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5.0/9.0
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9.0/5.0) + 32
+
+def temperature_converter():
+    temperature = float(input("Enter the temperature you want to convert: "))
+    conversion_direction = input("Enter 'F' to convert from Fahrenheit to Celsius or 'C' to convert from Celsius to Fahrenheit: ").strip().upper()
+
+    if conversion_direction == 'F':
+        converted_temp = fahrenheit_to_celsius(temperature)
+        print(f"{temperature}° Fahrenheit is equal to {converted_temp:.2f}° Celsius")
+    elif conversion_direction == 'C':
+        converted_temp = celsius_to_fahrenheit(temperature)
+        print(f"{temperature}° Celsius is equal to {converted_temp:.2f}° Fahrenheit")
+    else:
+        print("Invalid input. Please enter 'F' or 'C'.")
+
+# Run the converter
+temperature_converter()
+
+task game:
+
+class Task:
+    def __init__(self, task_id, title, description):
+        self.task_id = task_id
+        self.title = title
+        self.description = description
+
+    def __str__(self):
+        return f"ID: {self.task_id}, Title: {self.title}, Description: {self.description}"
+
+def display_tasks(task_list):
+    if not task_list:
+        print("No tasks available.")
+        return
+    print("Tasks List:")
+    for task in task_list:
+        print(task)
+
+def create_task(task_list):
+    task_id = len(task_list) + 1
+    title = input("Enter task title: ")
+    description = input("Enter task description: ")
+    new_task = Task(task_id, title, description)
+    task_list.append(new_task)
+    print(f"Task '{title}' created successfully.")
+
+def read_task(task_list):
+    task_id = int(input("Enter the task ID to view: "))
+    for task in task_list:
+        if task.task_id == task_id:
+            print(task)
+            return
+    print("Task not found.")
+
+def update_task(task_list):
+    task_id = int(input("Enter the task ID to update: "))
+    for task in task_list:
+        if task.task_id == task_id:
+            task.title = input("Enter new task title: ")
+            task.description = input("Enter new task description: ")
+            print(f"Task '{task_id}' updated successfully.")
+            return
+    print("Task not found.")
+
+def delete_task(task_list):
+    task_id = int(input("Enter the task ID to delete: "))
+    for i, task in enumerate(task_list):
+        if task.task_id == task_id:
+            del task_list[i]
+            print(f"Task '{task_id}' deleted successfully.")
+            return
+    print("Task not found.")
+
+def run_application():
+    task_list = []
+    while True:
+        print("\n1. View Tasks\n2. Create Task\n3. Read Task\n4. Update Task\n5. Delete Task\n6. Exit")
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            display_tasks(task_list)
+        elif choice == "2":
+            create_task(task_list)
+        elif choice == "3":
+            read_task(task_list)
+        elif choice == "4":
+            update_task(task_list)
+        elif choice == "5":
+            delete_task(task_list)
+        elif choice == "6":
+            print("Exiting application.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+# Run the application
+run_application()
