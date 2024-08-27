@@ -43,7 +43,7 @@ public class GuessingGame {
     }
 }
 
-pattern:
+pyramid pattern:
 
 import java.util.Scanner;
 
@@ -98,7 +98,7 @@ def temperature_converter():
 # Run the converter
 temperature_converter()
 
-task game:
+to do list task game:
 
 class Task:
     def __init__(self, task_id, title, description):
